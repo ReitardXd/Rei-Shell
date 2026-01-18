@@ -2,17 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+int main(void) {
+    setbuf(stdout, NULL);
 
+    char input[1024];
 
-int main(int argc, char *argv[]) {
-  // Flush after every printf
-  setbuf(stdout, NULL);
-  printf("$ ");
- char input[1024];
- fgets(input, sizeof(1024),stdin);
- 
- input [strlen(input)  - 1  ]  = '\0';
- printf ( "%s : input not found\n", input);
+    printf("$ ");
+    if (!fgets(input, sizeof(input), stdin)) {
+        return 0;
+    }
 
-  return 0;
+    size_t len = strlen(input);
+    if (len > 0 && input[len - 1] == '\n') {
+        input[len - 1] = '\0';
+    }
+
+    printf("%s : input not found\n", input);
+    return 0;
 }
