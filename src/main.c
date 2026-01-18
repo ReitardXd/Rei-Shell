@@ -21,8 +21,6 @@ int main(void) {
     }
 
     if (strcmp(command,"exit") == 0){
-
-      printf("Exiting  shell!\n");
       break;
     }
 
