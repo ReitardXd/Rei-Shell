@@ -17,6 +17,6 @@ int main(void) {
         input[len - 1] = '\0';
     }
 
-    printf("%s : input not found\n", input);
+    printf("%s: command not found\n", input);
     return 0;
 }
