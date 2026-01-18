@@ -5,18 +5,37 @@
 int main(void) {
     setbuf(stdout, NULL);
 
-    char input[1024];
+    char command[1024];
 
+
+    while (1){
+   
     printf("$ ");
-    if (!fgets(input, sizeof(input), stdin)) {
+    if (!fgets(command, sizeof(command), stdin)) {
         return 0;
     }
 
-    size_t len = strlen(input);
-    if (len > 0 && input[len - 1] == '\n') {
-        input[len - 1] = '\0';
+    size_t len = strlen(command);
+    if (len > 0 && command[len - 1] == '\n') {
+        command[len - 1] = '\0';
     }
 
-    printf("%s: command not found\n", input);
+    if (strcmp(command,"exit") == 0){
+
+      printf("Exiting  shell!\n");
+      break;
+    }
+
+    if (command[0] == '\0') {
+      continue;
+    }
+
+    printf("%s: command not found\n", command); }
+
+
     return 0;
+
+
+
+
 }
